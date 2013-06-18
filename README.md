@@ -12,8 +12,15 @@ grunt.loadNpmTasks('grunt-relative-root');
 grunt.initConfig({
   relativeRoot: {
     yourTarget: {
-      src: ['**/*.css'],
-      root: 'public'
+      options: {
+        root: 'public'
+      },
+      files: [{
+        expand: true,
+        cwd: '<%= relativeRoot.yourTarget.options.root %>',
+        src: ['*.css', '*.js'],
+        dest: 'out/'
+      }]
     },
   },
 })
