@@ -19,7 +19,7 @@ grunt.initConfig({
       files: [{
         expand: true,
         cwd: '<%= relativeRoot.yourTarget.options.root %>',
-        src: ['*.css', '*.js'],
+        src: ['*.css', '*.html'],
         dest: 'out/'
       }]
     },
