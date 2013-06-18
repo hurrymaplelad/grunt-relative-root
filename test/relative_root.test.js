@@ -27,12 +27,25 @@ exports.relativeRoot = {
     // setup here if necessary
     done();
   },
+
   simple: function(test) {
     test.expect(1);
 
     test.equal(
       grunt.file.read('tmp/simple/stylish.css'),
       grunt.file.read('test/expected/simple/stylish.css'),
+      'relativizes absolute paths'
+    );
+
+    test.done();
+  },
+
+  fancy: function(test) {
+    test.expect(1);
+
+    test.equal(
+      grunt.file.read('tmp/fancy/stylish.css'),
+      grunt.file.read('test/expected/fancy/stylish.css'),
       'relativizes absolute paths'
     );
 

@@ -16,16 +16,20 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('relativeRoot', pkg.description, function() {
     var root = this.options({root: '.'}).root;
 
-    function relativizeCSS (source) {
-      return source
+    function compute (from, to) {
+      return (path.relative(path.dirname(from), to) || '.') + '/';
+    }
+
+    function relativizeCSS (source, relativeRoot) {
+      return source.replace(/url\('\//g, "url('"+relativeRoot);
     }
 
     this.files.forEach(function(file) {
       var src = file.src[0],
+          relativeRoot = compute(src, root),
           extension = path.extname(src),
           filter, contents;
 
-      console.log(src);
       switch(extension) {
         case '.css': filter = relativizeCSS; break;
         case '.html': grunt.warn('HTML not implemented yet'); break;
@@ -33,7 +37,7 @@ module.exports = function(grunt) {
       }
 
       contents = grunt.file.read(src);
-      contents = filter(contents);
+      contents = filter(contents, relativeRoot);
       grunt.file.write(file.dest, contents);
       grunt.log.writeln('Relativized '+ file.dest);
     });
