@@ -40,12 +40,18 @@ exports.relativeRoot = {
   },
 
   fancy: function(test) {
-    test.expect(2);
+    test.expect(3);
 
     test.equal(
       grunt.file.read('tmp/fancy/stylish.css'),
       grunt.file.read('test/expected/fancy/stylish.css'),
       'relativizes absolute paths in CSS'
+    );
+
+    test.equal(
+      grunt.file.read('tmp/fancy/double_quotes.css'),
+      grunt.file.read('test/expected/fancy/double_quotes.css'),
+      'transforms double quoted paths in CSS'
     );
 
     test.equal(

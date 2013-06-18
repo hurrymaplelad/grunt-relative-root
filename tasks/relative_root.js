@@ -21,13 +21,13 @@ module.exports = function(grunt) {
     }
 
     function relativizeCSS (source, relativeRoot) {
-      return source.replace(/url\('\//g, "url('"+relativeRoot);
+      return source.replace(/(url\(['"])\/(?!\/)/g, "$1"+relativeRoot);
     }
 
     function relativizeHTML (source, relativeRoot) {
       return source
-        .replace(/href="\//g, 'href="'+relativeRoot)
-        .replace(/src="\//g, 'src="'+relativeRoot);
+        .replace(/(href=["'])\/(?!\/)/g, '$1'+relativeRoot)
+        .replace(/(src=["'])\/(?!\/)/g, '$1'+relativeRoot);
     }
 
     this.files.forEach(function(file) {
