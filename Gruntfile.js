@@ -43,7 +43,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: '<%= relativeRoot.fancy.options.root %>',
-          src: '*.css',
+          src: ['*.css', '*.html'],
           dest: 'tmp/fancy/'
         }]
       }

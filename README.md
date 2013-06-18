@@ -41,3 +41,4 @@ Type: `String`
 Default value: `'.'`
 
 Local directory used as the base for relative paths. If `root: 'public'` then the URL `'/images/logo.png'` in the file `'public/events/solstice.html'` will be rewritten as `'../image/logo.png'`.
+

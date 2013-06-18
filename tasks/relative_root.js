@@ -24,6 +24,12 @@ module.exports = function(grunt) {
       return source.replace(/url\('\//g, "url('"+relativeRoot);
     }
 
+    function relativizeHTML (source, relativeRoot) {
+      return source
+        .replace(/href="\//g, 'href="'+relativeRoot)
+        .replace(/src="\//g, 'src="'+relativeRoot);
+    }
+
     this.files.forEach(function(file) {
       var src = file.src[0],
           relativeRoot = compute(src, root),
@@ -32,7 +38,7 @@ module.exports = function(grunt) {
 
       switch(extension) {
         case '.css': filter = relativizeCSS; break;
-        case '.html': grunt.warn('HTML not implemented yet'); break;
+        case '.html': filter = relativizeHTML; break;
         default: grunt.warn('Unsupported extension '+src); return;
       }
 
