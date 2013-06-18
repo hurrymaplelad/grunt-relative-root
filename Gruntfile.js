@@ -30,27 +30,27 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     relativeRoot: {
-      default_options: {
-        options: {
-        },
-        files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123'],
-        },
+
+      simple: {
+        src: 'test/fixtures/stylish.css',
+        dest: 'tmp/simple/stylish.css'
       },
-      custom_options: {
+
+      fancy: {
         options: {
-          separator: ': ',
-          punctuation: ' !!!',
+          root: 'test/fixtures/'
         },
-        files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123'],
-        },
-      },
+        files: [{
+          expand: true,
+          src: 'test/fixtures/*.css',
+          dest: 'tmp/fancy/'
+        }]
+      }
     },
 
     // Unit tests.
     nodeunit: {
-      tests: ['test/*_test.js'],
+      tests: ['test/*.test.js'],
     },
 
   });

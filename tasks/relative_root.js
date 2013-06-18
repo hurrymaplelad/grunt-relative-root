@@ -8,43 +8,34 @@
 
 'use strict';
 
+var pkg = require('../package.json'),
+    path = require('path');
+
 module.exports = function(grunt) {
 
-  // Please see the Grunt documentation for more information regarding task
-  // creation: http://gruntjs.com/creating-tasks
+  grunt.registerMultiTask('relativeRoot', pkg.description, function() {
+    var root = this.options({root: '.'}).root;
 
-  grunt.registerMultiTask('relativeRoot', 'Your task description goes here.', function() {
-    // Merge task-specific and/or target-specific options with these defaults.
-    var options = this.options({
-      punctuation: '.',
-      separator: ', '
-    });
+    function relativizeCSS (source) {
+      return source
+    }
 
-    // Iterate over all specified file groups.
-    this.files.forEach(function(f) {
-      // Concat specified files.
-      var src = f.src.filter(function(filepath) {
-        // Warn on and remove invalid source files (if nonull was set).
-        if (!grunt.file.exists(filepath)) {
-          grunt.log.warn('Source file "' + filepath + '" not found.');
-          return false;
-        } else {
-          return true;
-        }
-      }).map(function(filepath) {
-        // Read file source.
-        return grunt.file.read(filepath);
-      }).join(grunt.util.normalizelf(options.separator));
+    this.files.forEach(function(file) {
+      var src = file.src[0],
+          extension = path.extname(src),
+          filter, contents;
 
-      // Handle options.
-      src += options.punctuation;
+      console.log(src);
+      switch(extension) {
+        case '.css': filter = relativizeCSS; break;
+        case '.html': grunt.warn('HTML not implemented yet'); break;
+        default: grunt.warn('Unsupported extension '+src); return;
+      }
 
-      // Write the destination file.
-      grunt.file.write(f.dest, src);
-
-      // Print a success message.
-      grunt.log.writeln('File "' + f.dest + '" created.');
+      contents = grunt.file.read(src);
+      contents = filter(contents);
+      grunt.file.write(file.dest, contents);
+      grunt.log.writeln('Relativized '+ file.dest);
     });
   });
-
 };
