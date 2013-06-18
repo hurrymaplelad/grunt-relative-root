@@ -2,46 +2,35 @@
 
 Relativize absolute paths in HTML and CSS.
 
-You built some static website.  Maybe your gonna host it on gh-pages.  Maybe you're squating a stellar domain name, but you'd rather review the site on `<yourname>.github.io/<yourproject>` before you repoint DNS.  How do you make your pages work from both `/<yourproject/` and `/` ?  Read on!
+You built some static website.  Maybe your gonna host it on gh-pages.  Maybe you're squating a stellar domain name, but you'd rather review the site on `<yourname>.github.io/<yourproject>` before you repoint DNS.  How do you make your pages work from both `/<yourproject/` and `/`?
 
+Add something like this to your Gruntfile:
+
+```js
+grunt.loadNpmTasks('grunt-relative-root');
+
+grunt.initConfig({
+  relativeRoot: {
+    yourTarget: {
+      src: ['**/*.css'],
+      root: 'public'
+    },
+  },
+})
+```
 ## Getting Started
-This plugin requires Grunt `~0.4.1`
+Grunt at least a `~0.4.1`
 
-If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
+You should be comfy with the [grunt basics](http://gruntjs.com/getting-started) and [npm](https://npmjs.org/doc/README.html) so you can install this in your project
 
 ```shell
 npm install grunt-relative-root --save-dev
 ```
 
-Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
+## Options
 
-```js
-grunt.loadNpmTasks('grunt-relative-root');
-```
-
-## The "relativeRoot" task
-
-### Overview
-In your project's Gruntfile, add a section named `relativeRoot` to the data object passed into `grunt.initConfig()`.
-
-```js
-grunt.initConfig({
-  relativeRoot: {
-    options: {
-      // Task-specific options go here.
-    },
-    yourTarget: {
-      // Target-specific file lists and/or options go here.
-    },
-  },
-})
-```
-<!--
-### Options
-
-#### options.separator
+#### root
 Type: `String`
-Default value: `',  '`
+Default value: `'.'`
 
-A string value that is used to do something with whatever.
- -->
+Local directory used as the base for relative paths. If `root: 'public'` then the URL `'/images/logo.png'` in the file `'public/events/solstice.html'` will be rewritten as `'../image/logo.png'`.
