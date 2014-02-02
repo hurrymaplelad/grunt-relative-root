@@ -55,6 +55,12 @@ exports.relativeRoot = {
     );
 
     test.equal(
+      grunt.file.read('tmp/fancy/no_quotes.css'),
+      grunt.file.read('test/expected/fancy/no_quotes.css'),
+      'transforms unquoted paths in CSS'
+    );
+
+    test.equal(
       grunt.file.read('tmp/fancy/prudent.html'),
       grunt.file.read('test/expected/fancy/prudent.html'),
       'relativizes absolute paths in HTML'
