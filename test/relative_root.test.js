@@ -40,7 +40,7 @@ exports.relativeRoot = {
   },
 
   fancy: function(test) {
-    test.expect(3);
+    test.expect(4);
 
     test.equal(
       grunt.file.read('tmp/fancy/stylish.css'),

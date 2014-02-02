@@ -21,7 +21,7 @@ module.exports = function(grunt) {
     }
 
     function relativizeCSS (source, relativeRoot) {
-      return source.replace(/(url\(['"])\/(?!\/)/g, "$1"+relativeRoot);
+      return source.replace(/(url\(['"]?)\/(?!\/)/g, "$1"+relativeRoot);
     }
 
     function relativizeHTML (source, relativeRoot) {
