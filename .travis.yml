@@ -1,5 +1,13 @@
 language: node_js
 node_js:
-  - "0.10"
+  - '0.10'
 before_script:
   - npm install -g grunt-cli
+deploy:
+  provider: npm
+  email: adam@hmlad.com
+  api_key:
+    secure: moD6V30lnt5lvFexjBogXp89+BEnL3BMiMK5HJrBCReTRMXanhNZtwA7O+E6dFQk6kAgljiVUL2X6baR5vAxYYxOJjKppexcLpjGLY7sBmScLpkNkVqoYHkpe1dHQhs7dGYV+ki0iELLC+7GU9BfpnV/uT0CNQNTCKHHDFgXVBQ=
+  on:
+    tags: true
+    repo: hurrymaplelad/grunt-relative-root
