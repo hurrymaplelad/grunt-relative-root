@@ -9,6 +9,6 @@
   "undef": true,
   "boss": true,
   "eqnull": true,
-  "node": true,
-  "es5": true
+  "browser": false,
+  "node": true
 }
