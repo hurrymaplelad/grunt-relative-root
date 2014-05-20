@@ -4,7 +4,7 @@
 
 Relativize absolute paths in HTML and CSS.
 
-You built some static website.  Maybe your gonna host it on gh-pages.  Maybe you're squating a stellar domain name, but you'd rather review the site on `<yourname>.github.io/<yourproject>` before you repoint DNS.  How do you make your pages work from both `/<yourproject/` and `/`?
+You built some static website.  Maybe you're gonna host it on gh-pages.  Maybe you're squating a stellar domain name, but you'd rather review the site on `<yourname>.github.io/<yourproject>` before you repoint DNS.  How do you make your pages work from both `/<yourproject/` and `/`?
 
 Add something like this to your Gruntfile:
 
