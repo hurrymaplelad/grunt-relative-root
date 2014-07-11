@@ -23,8 +23,8 @@ grunt.initConfig({
         src: ['*.css', '*.html'],
         dest: 'out/'
       }]
-    },
-  },
+    }
+  }
 })
 ```
 ## Getting Started
