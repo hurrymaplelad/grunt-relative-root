@@ -9,7 +9,8 @@
 'use strict';
 
 var pkg = require('../package.json'),
-    path = require('path');
+    path = require('path'),
+    slash = require('slash');
 
 module.exports = function(grunt) {
 
@@ -17,7 +18,7 @@ module.exports = function(grunt) {
     var root = this.options({root: '.'}).root;
 
     function compute (from, to) {
-      return (path.relative(path.dirname(from), to) || '.') + '/';
+      return (slash(path.relative(path.dirname(from), to)) || '.') + '/';
     }
 
     function relativizeCSS (source, relativeRoot) {
