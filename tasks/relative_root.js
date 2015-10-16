@@ -28,6 +28,7 @@ module.exports = function(grunt) {
     function relativizeHTML (source, relativeRoot) {
       return source
         .replace(/(href=["'])\/(?!\/)/g, '$1'+relativeRoot)
+        .replace(/(poster=["'])\/(?!\/)/g, '$1'+relativeRoot)
         .replace(/(src=["'])\/(?!\/)/g, '$1'+relativeRoot)
         .replace(/(assetpath=["'])\/(?!\/)/g, '$1'+relativeRoot)
         .replace(/(url=["'])\/(?!\/)/g, '$1'+relativeRoot)
