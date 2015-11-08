@@ -32,7 +32,8 @@ module.exports = function(grunt) {
         .replace(/(src=["'])\/(?!\/)/g, '$1'+relativeRoot)
         .replace(/(assetpath=["'])\/(?!\/)/g, '$1'+relativeRoot)
         .replace(/(url=["'])\/(?!\/)/g, '$1'+relativeRoot)
-        .replace(/(url\(['"]?)\/(?!\/)/g, "$1"+relativeRoot);
+        .replace(/(url\(['"]?)\/(?!\/)/g, "$1"+relativeRoot)
+        .replace(/(content=["']0;url=)\/(?!\/)/g, "$1"+relativeRoot);
     }
 
     this.files.forEach(function(file) {
