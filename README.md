@@ -1,6 +1,7 @@
 # grunt-relative-root
-[![Build Status](https://travis-ci.org/hurrymaplelad/grunt-relative-root.png)](https://travis-ci.org/hurrymaplelad/grunt-relative-root)
-[![Dependency Status](https://gemnasium.com/hurrymaplelad/grunt-relative-root.png)](https://gemnasium.com/hurrymaplelad/grunt-relative-root)
+[![Build Status](https://img.shields.io/travis/hurrymaplelad/grunt-relative-root.svg?style=flat-square)](https://travis-ci.org/hurrymaplelad/grunt-relative-root)
+[![Dependency Status](https://img.shields.io/gemnasium/hurrymaplelad/grunt-relative-root.svg?style=flat-square)](https://gemnasium.com/hurrymaplelad/grunt-relative-root)
+[![NPM Version](https://img.shields.io/npm/v/grunt-relative-root.svg?style=flat-square)](https://www.npmjs.com/package/grunt-relative-root)
 
 Relativize absolute paths in HTML and CSS.
 
