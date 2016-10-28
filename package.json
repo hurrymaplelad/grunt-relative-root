@@ -1,7 +1,7 @@
 {
   "name": "grunt-relative-root",
   "description": "Relativize absolute paths in HTML and CSS",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "homepage": "https://github.com/hurrymaplelad/grunt-relative-root",
   "author": {
     "name": "Adam Hull",
