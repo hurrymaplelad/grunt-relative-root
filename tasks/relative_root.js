@@ -30,6 +30,7 @@ module.exports = function(grunt) {
         .replace(/(href=["'])\/(?!\/)/g, '$1'+relativeRoot)
         .replace(/(poster=["'])\/(?!\/)/g, '$1'+relativeRoot)
         .replace(/(src=["'])\/(?!\/)/g, '$1'+relativeRoot)
+        .replace(/(srcset=["'])\/(?!\/)/g, '$1'+relativeRoot)
         .replace(/(assetpath=["'])\/(?!\/)/g, '$1'+relativeRoot)
         .replace(/(url=["'])\/(?!\/)/g, '$1'+relativeRoot)
         .replace(/(url\(['"]?)\/(?!\/)/g, "$1"+relativeRoot)
